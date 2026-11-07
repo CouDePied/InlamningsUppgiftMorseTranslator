@@ -74,5 +74,14 @@ public void tesMorseToTextB() {
         assertEquals(expected, actual);
 
     }
+    @Test
+    public void testMorseToTextWords() {
+        Logikklassen logik = new Logikklassen();
+
+        String expected = "HEJ";
+        String actual = logik.morseToText(".... . .---");
+        assertEquals(expected, actual);
+
+    }
 
 }

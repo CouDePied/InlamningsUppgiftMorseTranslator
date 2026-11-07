@@ -3,37 +3,35 @@ package InlamningsuppgiftMorse;
 import java.util.HashMap;
 
 public class Logikklassen {
+
+        //Översätter bokstäver till morsekod.
+        HashMap<String, String> morse = new HashMap<>();
+        //Översätter morsekod till bokstäver.   //Båda metoderna kan använda samma HashMaps.
+        HashMap<String, String> text = new HashMap<>();
+
+
+    String alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+   //Array med 26 morsekoder.
+    String[] morsekoder = {
+            ".-", "-...", "-.-.", "-..", ".", "..-.",
+            "--.", "....", "..", ".---", "-.-", ".-..",
+            "--", "-.", "---", ".--.", "--.-", ".-.",
+            "...", "-", "..-", "...-", ".--", "-..-",
+            "-.--", "--.."
+    };
+    public Logikklassen() {
+        //Loopen går igenom alfabetet. 26 gånger.
+        for (int i = 0; i < alfabet.length(); i++) {
+            //Hämtar en bokstav
+            String letter = Character.toString(alfabet.charAt(i));
+            //Fyller båda hashmaps.
+            morse.put(letter, morsekoder[i]);
+            text.put(morsekoder[i], letter);
+
+        }
+    }
     public String textToMorse(String text) {
 
-        HashMap<String, String> morse = new HashMap<>();
-
-        morse.put("A", ".-");
-        morse.put("B", "-...");
-        morse.put("C", "-.-.");
-        morse.put("D", "-..");
-        morse.put("E", ".");
-        morse.put("F", "..-.");
-        morse.put("G", "--.");
-        morse.put("H", "....");
-        morse.put("I", "..");
-        morse.put("J", ".---");
-        morse.put("K", "-.-");
-        morse.put("L", ".-..");
-        morse.put("M", "--");
-        morse.put("N", "-.");
-        morse.put("O", "---");
-        morse.put("P", ".--.");
-        morse.put("Q", "--.-");
-        morse.put("R", ".-.");
-        morse.put("S", "...");
-        morse.put("T", "-");
-        morse.put("U", "..-");
-        morse.put("V", "...-");
-        morse.put("W", ".--");
-        morse.put("X", "-..-");
-        morse.put("Y", "-.--");
-        morse.put("Z", "--..");
-        // return morse.get(text);
 
         String result = "";
         //En for-loop som går igenom texten tecken för tecken med charAt(i).
@@ -41,38 +39,37 @@ public class Logikklassen {
         //Loopen går igenom hela texten
         //Den körs en gång för varje tecken i texten
         for (int i = 0; i < text.length(); i++) {
-            //morse.get(String.valueOf(letter));
+
             //CharHämtar en bokstav i taget.
            // char letter = text.charAt(i);
             String letter = Character.toString(text.charAt(i));
 
-            //Gör mellanslag
+            //Hämtar morsekoden och lägger den i resultatet.
                 result += morse.get(letter) + " ";
             }
-            //Översätter bokstaven
-            //Den hämtar motsvarande morsekod från HashMap och lägger till den i resultatet.
-            //result += morse.get(String.valueOf(letter));
 
-
+          //Tar bort mellanslaget i slutet.
         return  result.trim();
     }
-    //public String morseToText(String morse) {
-       // return "A";
+
         public String morseToText(String morse) {
+//Delar upp morse koden så att det inte blir en lång sträng.
+String[] letters = morse.split(" ");
 
-            HashMap<String, String> text = new HashMap<>();
+//Går igenom arrayen en morsebok i taget.
+            for (int i = 0; i < letters.length; i++) {
+                //Och sparar det i en String.
+                String letter = letters[i];
 
-            text.put(".-", "A");
-            text.put("-...", "B");
 
+            }
             return text.get(morse);
         }
     }
 
 //+= betyder att vi lägger till något till det som redan finns i variabeln
-//result += morse.get(String.valueOf(letter)) + " ";
+
 //if (i > 0) {
 //    result += " ";
 //}
-//
-//result += morse.get(String.valueOf(letter));
+
