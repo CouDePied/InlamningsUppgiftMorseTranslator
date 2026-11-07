@@ -32,6 +32,8 @@ public class Logikklassen {
     }
     public String textToMorse(String text) {
 
+      //Felhantering1  //Omvandlar små bokstäver till stora innan loopen börjar översätta
+text = text.toUpperCase();
 
         String result = "";
         //En for-loop som går igenom texten tecken för tecken med charAt(i).
@@ -44,6 +46,14 @@ public class Logikklassen {
            // char letter = text.charAt(i);
             String letter = Character.toString(text.charAt(i));
 
+            //Felhantering2
+            //Kontroll om bokstav finns i HashMap.
+if (!morse.containsKey(letter)) {
+
+    //Kastar ett IllegalArgumentexception om tecknet inte finns. Fungerar även på HEJ123
+    throw new IllegalArgumentException("Appapp! Ogiltigt tecken!");
+    //Meddelandet är det som testet sen kontrollerar.
+}
             //Hämtar morsekoden och lägger den i resultatet.
                 result += morse.get(letter) + " ";
             }
@@ -53,17 +63,26 @@ public class Logikklassen {
     }
 
         public String morseToText(String morse) {
-//Delar upp morse koden så att det inte blir en lång sträng.
+//Delar upp morse koden i en array så att det inte blir en lång sträng.
 String[] letters = morse.split(" ");
+String result = "";
+
 
 //Går igenom arrayen en morsebok i taget.
             for (int i = 0; i < letters.length; i++) {
-                //Och sparar det i en String.
+
+         //Hämtar en morsebokstav.       //Och sparar det i en String.
                 String letter = letters[i];
 
+                if (!text.containsKey(letter)) {
+                    throw new IllegalArgumentException("Ogiltig morsekod");
+                }
+               //Översätter och lägger till bokstaven i resultatet.
+            result += text.get(letter);
 
             }
-            return text.get(morse);
+            //Metoden skickar tillbaka hela den översatta texten.
+            return result;
         }
     }
 
