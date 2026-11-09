@@ -7,7 +7,16 @@ public class MainKlassen {
         Scanner scan = new Scanner(System.in);
         //Skapar ett objekt som kan använda de två metoderna.
         Logikklassen logik = new Logikklassen();
+       /* System.out.println("1. Text till morse");
+        System.out.println("2. Morse till text");
 
+        String choice = scan.nextLine();
+
+        if (choice.equals("1")) {
+            System.out.println(logik.textToMorse(input));
+        } else if (choice.equals("2")) {
+            System.out.println(logik.morseToText(input));
+        } */
 
         System.out.println("Skriv in text eller morsekod:");
 

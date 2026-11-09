@@ -32,7 +32,7 @@ public class MorseTest {
 
     //Kontrollerar morse till text
     @Test
-    public void tesMorseToTextB() {
+    public void testMorseToTextB() {
         //Arrange
         Logikklassen logik = new Logikklassen();
         String expected = "B";
