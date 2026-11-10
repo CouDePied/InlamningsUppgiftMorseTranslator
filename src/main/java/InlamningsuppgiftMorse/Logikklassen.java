@@ -8,7 +8,8 @@ public class Logikklassen {
     //För varje bokstav sparas två poster i samma Hashmap.
     //Först är bokstaven-key och morse-value.
     //Sen tvärtom.
-    HashMap<String, String> map = new HashMap<>();
+    //HashMap<String, String> map = new HashMap<>();
+    private HashMap<String, String> map;
 
     String alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //Array med 26 morsekoder.
@@ -21,6 +22,7 @@ public class Logikklassen {
     };
 
     public Logikklassen() {
+        map = new HashMap<>();
         //Loopen går igenom alfabetet. 26 gånger.
         for (int i = 0; i < alfabet.length(); i++) {
             //Hämtar en bokstav från alfabetet och gör den till en String
@@ -51,10 +53,11 @@ public class Logikklassen {
             if (!map.containsKey(letter)) {
                 //Och om tecknet INTE finns så går programmet in i if.
 
-                //Då kastas ett IllegalArgumentexception om tecknet inte finns. Fungerar även på HEJ123
-                throw new IllegalArgumentException("Appapp! Ogiltigt tecken!");
+                //Då kastas ett IllegalArgumentexception om tecknet inte finns. Fungerar även på HEJ123.
                 //Meddelandet är det som testet sen kontrollerar.
                 //Exceptionet fångas av mainklassen med catch och skriver ut felmeddelande.
+                throw new IllegalArgumentException("Appapp! Ogiltigt tecken!");
+
             }
             //Hämtar morsekoden och lägger den i resultatet.
             result += map.get(letter) + " ";
