@@ -8,8 +8,9 @@ public class Logikklassen {
     //För varje bokstav sparas två poster i samma Hashmap.
     //Först är bokstaven-key och morse-value.
     //Sen tvärtom.
-    //HashMap<String, String> map = new HashMap<>();
-    private HashMap<String, String> map;
+    //private HashMap<String, String> map;
+    private HashMap<String, String> morse;
+    private HashMap<String, String> text;
 
     String alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     //Array med 26 morsekoder.
@@ -22,14 +23,17 @@ public class Logikklassen {
     };
 
     public Logikklassen() {
-        map = new HashMap<>();
+        morse = new HashMap<>();
+        text = new HashMap<>();
         //Loopen går igenom alfabetet. 26 gånger.
         for (int i = 0; i < alfabet.length(); i++) {
             //Hämtar en bokstav från alfabetet och gör den till en String
             String letter = Character.toString(alfabet.charAt(i));
             //Fyller hashmapen med två poster för varje bokstav.
-            map.put(letter, morsekod[i]);
-            map.put(morsekod[i], letter);
+           // map.put(letter, morsekod[i]);
+           // map.put(morsekod[i], letter);
+            morse.put(letter, morsekod[i]);
+            text.put(morsekod[i], letter);
 
         }
     }
@@ -50,7 +54,7 @@ public class Logikklassen {
 
             //Felhantering 1:
             //Kontrollerar om ogiltigt tecken finns i texten..
-            if (!map.containsKey(letter)) {
+            if (!morse.containsKey(letter)) {
                 //Och om tecknet INTE finns så går programmet in i if.
 
                 //Då kastas ett IllegalArgumentexception om tecknet inte finns. Fungerar även på HEJ123.
@@ -60,7 +64,7 @@ public class Logikklassen {
 
             }
             //Hämtar morsekoden och lägger den i resultatet.
-            result += map.get(letter) + " ";
+            result += morse.get(letter) + " ";
         }
 
         //Tar bort mellanslaget i slutet.
@@ -80,11 +84,13 @@ public class Logikklassen {
             String letter = letters[i];
 
             //Felhantering 2: Ogiltig morsekod.
-            if (!map.containsKey(letter)) {
+            //if (!map.vontainsKey(letter)) {
+            if (!text.containsKey(letter)) {
                 throw new IllegalArgumentException("Ogiltig morsekod!");
             }
             //Översätter och lägger till bokstaven i resultatet.
-            result += map.get(letter);
+            //result += map.get(letter);
+            result += text.get(letter);
 
         }
         //Metoden skickar tillbaka hela den översatta texten.

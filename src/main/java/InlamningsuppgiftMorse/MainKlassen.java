@@ -8,31 +8,37 @@ public class MainKlassen {
         //Skapar ett objekt som kan använda de två metoderna.
         Logikklassen logik = new Logikklassen();
 
+        System.out.println("Welcome to the Almighty Morseinator!");
+
         boolean isRunning = true;
         while (isRunning) {
-       /* System.out.println("1. Text till morse");
-        System.out.println("2. Morse till text");
+            System.out.println("1. Text to morse");
+            System.out.println("2. Morse to text");
+            System.out.println("3. Exit");
 
-        String choice = scan.nextLine();
+            System.out.println("Please choose an option:");
 
-        if (choice.equals("1")) {
-            System.out.println(logik.textToMorse(input));
-        } else if (choice.equals("2")) {
-            System.out.println(logik.morseToText(input));
-        } */
-
-            System.out.println("Skriv in text eller morsekod:");
-
-            //Läser in hela raden och sparar den i input.
-            String input = scan.nextLine();
+            String choice = scan.nextLine();
             try {
-                //Avgör om användaren skriver vanlig text eller morsekod.
-                if (input.startsWith(".") || input.startsWith("-")) {
-                    System.out.println(logik.morseToText(input));
-                } else {
+
+                //Kontrollerar om användaren har valt 1.
+                if (choice.equals("1")) {
+                    System.out.println("Enter text:");
+                    String input = scan.nextLine();
+                    //Översätter till morsekod.
                     System.out.println(logik.textToMorse(input));
 
+                } else if (choice.equals("2")) {
+                    System.out.println("Enter Morse code:");
+                    String input = scan.nextLine();
+                    //Översätter till text.
+                    System.out.println(logik.morseToText(input));
+                } else if (choice.equals("3")) {
+                    //Gör att loopen avslutas.
+                    isRunning = false;
+                    System.out.println("Thank you! Goodbye!");
                 }
+
                 //Mainklassen skickar texten till Logikklassen.
                 //Som ser att ! inte finns i alfabetet.
                 //En IllegalArgumentException kastas.
@@ -40,7 +46,11 @@ public class MainKlassen {
                 //Användaren får felmeddelandet.
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
+
             }
         }
     }
 }
+
+
+
