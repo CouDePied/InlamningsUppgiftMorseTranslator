@@ -5,11 +5,13 @@ import java.util.Scanner;
 public class AlmightyMorseinator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        //Skapar ett objekt som kan använda de två metoderna.
+
+        //Skapar objektet som kan använda de två metoderna i LogicClass via konstruktorn.
         LogicClass logik = new LogicClass();
 
         System.out.println("Welcome to the Almighty Morseinator!");
 
+       //Startar loopen.
         boolean isRunning = true;
         while (isRunning) {
             System.out.println("1. Text to morse");
@@ -17,17 +19,15 @@ public class AlmightyMorseinator {
             System.out.println("3. Exit");
 
             System.out.println("Please choose an option:");
-
             String choice = scan.nextLine();
-            try {
 
                 //Kontrollerar om användaren har valt 1.
                 if (choice.equals("1")) {
                     System.out.println("Enter text:");
+                    //Läser in.
                     String input = scan.nextLine();
-                    //Översätter till morsekod.
+                    //Översätter till morsekod. Och skriver ut.
                     System.out.println(logik.textToMorse(input));
-
                 } else if (choice.equals("2")) {
                     System.out.println("Enter Morse code:");
                     String input = scan.nextLine();
@@ -38,19 +38,9 @@ public class AlmightyMorseinator {
                     isRunning = false;
                     System.out.println("Thank you! Goodbye!");
                 }
-
-                //Mainklassen skickar texten till Logikklassen.
-                //Som ser att ! inte finns i alfabetet.
-                //En IllegalArgumentException kastas.
-                //Catch fångar felet.
-                //Användaren får felmeddelandet.
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-
             }
         }
     }
-}
 
 
 
