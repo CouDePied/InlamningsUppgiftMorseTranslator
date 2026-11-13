@@ -6,7 +6,7 @@ public class AlmightyMorseinator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         //Skapar ett objekt som kan använda de två metoderna.
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
 
         System.out.println("Welcome to the Almighty Morseinator!");
 

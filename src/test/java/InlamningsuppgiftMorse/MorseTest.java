@@ -11,7 +11,7 @@ public class MorseTest {
     public void testTextToMorseA() {
 
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = ".-";
         //Act
         String actual = logik.textToMorse("A");
@@ -23,7 +23,7 @@ public class MorseTest {
     @Test
     public void testTextToMorseB() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = "-...";
         //Act
         String actual = logik.textToMorse("B");
@@ -36,7 +36,7 @@ public class MorseTest {
     @Test
     public void testMorseToTextB() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = "B";
         //Act
         String actual = logik.morseToText("-...");
@@ -49,7 +49,7 @@ public class MorseTest {
     @Test
     public void testMultipleLetters() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = ".- -...";
         //Act
         String actual = logik.textToMorse("AB");
@@ -57,14 +57,14 @@ public class MorseTest {
         assertEquals(expected, actual);
     }
 
-    //Testa hela alfabetet
+    //Testa hela alfabetet.
     @Test
     public void testWholeAlphabet() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
-        String expected = ".- -... -.-. -.. . ..-. --. .... .. .--- "
-                + "-.- .-.. -- -. --- .--. --.- .-. ... - ..- ...- "
-                + ".-- -..- -.-- --..";
+        LogicClass logik = new LogicClass();
+        String expected = ".- -... -.-. -.. . ..-. --. .... .. .---" +
+                ", -.- .-.. -- -. --- .--. --.- .-. ... - ..- ...-," +
+                " .-- -..- -.-- --..";
         //Act
         String actual = logik.textToMorse("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
         //Assert
@@ -75,7 +75,7 @@ public class MorseTest {
     @Test
     public void testMorseToText() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = "H";
         //Act
         String actual = logik.morseToText("....");
@@ -85,9 +85,9 @@ public class MorseTest {
     }
 
     @Test
-    //Kontrollerar
+    //Kontrollerar hela ord.
     public void testMorseToTextWords() {
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
 
         String expected = "HEJ";
         String actual = logik.morseToText(".... . .---");
@@ -98,7 +98,7 @@ public class MorseTest {
     @Test
     public void testToUpperCase() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String expected = ".... . .---";
 
         //Act
@@ -112,7 +112,7 @@ public class MorseTest {
     @Test
     public void testInvalidCharacter() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String input = "HEJ!";
 
         //Act
@@ -126,7 +126,7 @@ public class MorseTest {
     @Test
     public void testInvalidMorse() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String input = ".-.-.-";
         String expected = "Appapp! Invalid morse!";
 
@@ -139,7 +139,7 @@ public class MorseTest {
     @Test
     public void testEmptyInput() {
         //Arrange
-        Logikklassen logik = new Logikklassen();
+        LogicClass logik = new LogicClass();
         String input = "";
         String expected = "No input";
 
