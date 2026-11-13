@@ -19,9 +19,9 @@ public class LogicClass {
             "-.--", "--.."
     };
 
-    //Konstruktorn.
+    //Konstruktorn skapar och fyller två hashmaps.
     public LogicClass() {
-        //Objekten
+        //Skapar två hashmap objekt.
         morse = new HashMap<>();
         text = new HashMap<>();
         //Loopen går igenom alfabetet. 26 gånger.
@@ -29,7 +29,7 @@ public class LogicClass {
             //Hämtar en bokstav från alfabetet (index i) och gör den till en String.
             String letter = Character.toString(alfabet.charAt(i));
 
-            //Fyller varje hashmap med två poster för varje bokstav.
+            //Fyller en post i varje hashmap för varje bokstav.
             morse.put(letter, morsekod[i]);
             text.put(morsekod[i], letter);
 
@@ -42,7 +42,7 @@ public class LogicClass {
         //Omvandlar små bokstäver till stora innan loopen börjar översätta.
         text = text.toUpperCase();
 
-        //Felhantering. Kontroll om användaren gjort en tom sträng. Return avslutar.
+        //Felhantering 1. Kontroll om användaren gjort en tom sträng. Return avslutar.
         if (text.isEmpty()) {
             return "No input.";
         }
@@ -58,7 +58,8 @@ public class LogicClass {
             //Hämtar översatta morsekoden för bokstaven från HashMap.
             String morseCode = morse.get(letter);
 
-            //Felhantering 1: Kontrollerar om bokstaven saknas.
+            //Felhantering 2:
+            // Kontrollerar om bokstaven saknas för att get() returnerar null.
             if (morseCode == null) {
                 return "Appapp! Invalid character!";
             } else {
@@ -83,7 +84,7 @@ public class LogicClass {
             String letter = letters[i];
             String bokstav = text.get(letter);
 
-            //Felhantering 2:
+            //Felhantering 3:
             // Kontrollerar om morsekoden finns i HashMap.
             if (bokstav == null) {
                 return "Appapp! Invalid morse!";
