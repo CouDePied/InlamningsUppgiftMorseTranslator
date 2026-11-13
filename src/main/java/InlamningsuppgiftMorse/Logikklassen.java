@@ -4,16 +4,13 @@ import java.util.HashMap;
 
 public class Logikklassen {
 
-    //En HashMap som innehåller översättning åt båda håll.
-    //För varje bokstav sparas två poster i samma Hashmap.
-    //Först är bokstaven-key och morse-value.
-    //Sen tvärtom.
+
     //private HashMap<String, String> map;
     private HashMap<String, String> morse;
     private HashMap<String, String> text;
 
     String alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    //Array med 26 morsekoder.
+
     String[] morsekod = {
             ".-", "-...", "-.-.", "-..", ".", "..-.",
             "--.", "....", "..", ".---", "-.-", ".-..",
@@ -29,6 +26,7 @@ public class Logikklassen {
         for (int i = 0; i < alfabet.length(); i++) {
             //Hämtar en bokstav från alfabetet och gör den till en String
             String letter = Character.toString(alfabet.charAt(i));
+
             //Fyller hashmapen med två poster för varje bokstav.
            // map.put(letter, morsekod[i]);
            // map.put(morsekod[i], letter);
@@ -41,7 +39,13 @@ public class Logikklassen {
     public String textToMorse(String text) {
 
         //Omvandlar små bokstäver till stora innan loopen börjar översätta.
+        //Anpassning.
         text = text.toUpperCase();
+
+        //Felhantering. Kontroll om användaren skrivit något.
+        if (text.isEmpty()) {
+            return "No input";
+        }
 
         String result = "";
 
@@ -52,19 +56,23 @@ public class Logikklassen {
             //Hämtar en bokstav i taget och omvandlar den till en string.
             String letter = Character.toString(text.charAt(i));
 
-            //Felhantering 1:
-            //Kontrollerar om ogiltigt tecken finns i texten..
-            if (!morse.containsKey(letter)) {
-                //Och om tecknet INTE finns så går programmet in i if.
 
-                //Då kastas ett IllegalArgumentexception om tecknet inte finns. Fungerar även på HEJ123.
-                //Meddelandet är det som testet sen kontrollerar.
-                //Exceptionet fångas av mainklassen med catch och skriver ut felmeddelande.
-                throw new IllegalArgumentException("Appapp! Ogiltigt tecken!");
+               // String morsekod = morse.get(letter);
+//Hämtar morsekoden för bokstaven från HashMap.
+            String morseCode = morse.get(letter);
 
+//Felhantering 1: Kontrollerar om bokstaven finns.
+            if (morseCode == null) {
+                return "Appapp! Invalid character!";
+            } else {
+                //Lägger till morsekoden i resultatet.
+                result += morseCode + " ";
             }
+
+
+
             //Hämtar morsekoden och lägger den i resultatet.
-            result += morse.get(letter) + " ";
+           // result += morse.get(letter) + " ";
         }
 
         //Tar bort mellanslaget i slutet.
@@ -82,17 +90,21 @@ public class Logikklassen {
 
             //Hämtar en morsebokstav.       //Och sparar det i en String.
             String letter = letters[i];
+            String bokstav = text.get(letter);
 
-            //Felhantering 2: Ogiltig morsekod.
-            //if (!map.vontainsKey(letter)) {
-            if (!text.containsKey(letter)) {
-                throw new IllegalArgumentException("Ogiltig morsekod!");
+//Felhantering 2:
+// Kontrollerar om morsekoden finns i HashMap.
+            if (bokstav == null) {
+                return "Appapp! Invalid morse!";
+            } else {
+                result += bokstav;
+            }
             }
             //Översätter och lägger till bokstaven i resultatet.
             //result += map.get(letter);
-            result += text.get(letter);
+           // result += text.get(letter);
 
-        }
+
         //Metoden skickar tillbaka hela den översatta texten.
         return result;
     }

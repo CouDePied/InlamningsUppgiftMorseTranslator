@@ -5,8 +5,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class MorseTest {
+
+    //Kontrollerar text till morse.
     @Test
-    public void testTextToMorse() {
+    public void testTextToMorseA() {
 
         //Arrange
         Logikklassen logik = new Logikklassen();
@@ -17,7 +19,7 @@ public class MorseTest {
         assertEquals(expected, actual);
 
     }
-
+//Kontrollerar text till morse.
     @Test
     public void testTextToMorseB() {
         //Arrange
@@ -42,7 +44,8 @@ public class MorseTest {
         assertEquals(expected, actual);
     }
 
-    //Kontrollerar att programmet kan översätta flera bokstäver och separera morsekoderna med mellanslag.
+    //Kontrollerar att programmet kan översätta flera bokstäver
+    // och separera morsekoderna med mellanslag.
     @Test
     public void testMultipleLetters() {
         //Arrange
@@ -68,7 +71,7 @@ public class MorseTest {
         assertEquals(expected, actual);
 
     }
-
+//Kontrollerar en bokstav mitt i.
     @Test
     public void testMorseToText() {
         //Arrange
@@ -82,6 +85,7 @@ public class MorseTest {
     }
 
     @Test
+    //Kontrollerar
     public void testMorseToTextWords() {
         Logikklassen logik = new Logikklassen();
 
@@ -90,7 +94,7 @@ public class MorseTest {
         assertEquals(expected, actual);
 
     }
-
+//kontrollerar
     @Test
     public void testToUpperCase() {
         //Arrange
@@ -104,48 +108,49 @@ public class MorseTest {
         assertEquals(expected, actual);
 
     }
+    //Kontrollerar om användaren skrivit in ogiltigt texttecken.
     @Test
     public void testInvalidCharacter() {
-
         //Arrange
         Logikklassen logik = new Logikklassen();
-        boolean errorFound = false;
+        String input = "HEJ!";
 
         //Act
-        try {
-            logik.textToMorse("HEJ!");
+        String actual = logik.textToMorse(input);
+        String expected ="Appapp! Invalid character!";
 
-        } catch (IllegalArgumentException e) {
-            errorFound = true;
+        //Assert
+        assertEquals(expected, actual);
 
-            //Assert
-            assertEquals("Appapp! Ogiltigt tecken!", e.getMessage());
-        }
-
-        assertEquals(true, errorFound);
     }
     @Test
     public void testInvalidMorse() {
-//Arrange
+        //Arrange
         Logikklassen logik = new Logikklassen();
-
-        //errorFound börjar som false
-        //Försöker översätta ".-.-.-."
-        //Om metoden kastar ett IllegalArgumentException fångas det av catch.
-        //Kontrollen är att exception verkligen kastades..
-        boolean errorFound = false;
+        String input = ".-.-.-";
+        String expected = "Appapp! Invalid morse!";
 
         //Act
-        try {
-            logik.morseToText(".-.-.-");
-        } catch (IllegalArgumentException e) {
-            errorFound = true;
-        }
-            //Assert
-            assertEquals(true, errorFound);
+        String actual = logik.morseToText(input);
 
-        }
+        //Assert
+        assertEquals(expected, actual);
     }
+    @Test
+    public void testEmptyInput() {
+        //Arrange
+        Logikklassen logik = new Logikklassen();
+        String input = "";
+        String expected = "No input";
+
+        //Act
+        String actual = logik.textToMorse(input);
+
+        //Assert
+        assertEquals(expected, actual);
+    }
+        }
+
 
 
 

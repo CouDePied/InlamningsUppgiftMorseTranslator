@@ -2,7 +2,7 @@ package InlamningsuppgiftMorse;
 
 import java.util.Scanner;
 
-public class MainKlassen {
+public class AlmightyMorseinator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         //Skapar ett objekt som kan använda de två metoderna.
