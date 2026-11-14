@@ -39,7 +39,7 @@ public class LogicClass {
         //Omvandlar små bokstäver till stora innan loopen börjar översätta.
         text = text.toUpperCase();
 
-        //Felhantering 1. Kontroll om användaren gjort en tom sträng. Return avslutar.
+        //Felhantering 1: Kontroll om användaren gjort en tom sträng. Return avslutar.
         if (text.isEmpty()) {
             return "No input.";
         }
@@ -68,6 +68,10 @@ public class LogicClass {
     }
 
     public String morseToText(String morse) {
+        //Felhantering 3: Kontroll om användaren gjort en tom sträng. Return avslutar.
+        if (morse.isEmpty()) {
+            return "No input.";
+        }
         //Delar upp morsekoden vid mellanslagen och sparar delarna i en array.
         String[] letters = morse.split(" ");
         String result = "";
@@ -79,7 +83,7 @@ public class LogicClass {
             String letter = letters[i];
             String bokstav = text.get(letter);
 
-            //Felhantering 3:
+            //Felhantering 4:
             // Kontrollerar om morsekoden finns i HashMap.
             if (bokstav == null) {
                 return "Invalid morse! Try again!";

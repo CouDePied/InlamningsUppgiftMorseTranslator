@@ -142,9 +142,9 @@ public class MorseTest {
         assertEquals(expected, actual);
     }
 
-    //Kontrollerar tom rad.
+    //Kontrollerar tom inmatning i textToMorse().
     @Test
-    public void testEmptyInput() {
+    public void testEmptyTextInput() {
 
         //Arrange
         LogicClass logik = new LogicClass();
@@ -152,6 +152,20 @@ public class MorseTest {
         String expected = "No input.";
         //Act
         String actual = logik.textToMorse(input);
+        //Assert
+        assertEquals(expected, actual);
+    }
+
+    //Kontrollerar tom inmatning i morseToText()
+    @Test
+    public void testEmptyMorseInput() {
+
+        //Arrange
+        LogicClass logik = new LogicClass();
+        String input = "";
+        String expected = "No input.";
+        //Act
+        String actual = logik.morseToText(input);
         //Assert
         assertEquals(expected, actual);
     }

@@ -6,7 +6,7 @@ public class AlmightyMorseinator {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        //Skapar objektet som kan använda de två metoderna i LogicClass via konstruktorn.
+        //Skapar ett objekt av LogicClass. Kostruktorn fyller båda hashMaps.
         LogicClass logik = new LogicClass();
 
         System.out.println("Welcome to the Almighty Morseinator!");
@@ -37,9 +37,9 @@ public class AlmightyMorseinator {
                     //Gör att loopen avslutas.
                     isRunning = false;
                     System.out.println("Thank you! Goodbye!");
-                    //Felhantering 4:
-                    //Om användaren väljer något annat än 1, 2, eller 3.
-                } else {
+
+                } else { //Felhantering 5:
+                    //Om användaren väljer något annat än 1, 2, eller 3
                     System.out.println("Invalid menu option! Please try again!");
                 }
             }
