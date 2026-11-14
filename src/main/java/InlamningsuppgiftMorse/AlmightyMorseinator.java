@@ -37,6 +37,10 @@ public class AlmightyMorseinator {
                     //Gör att loopen avslutas.
                     isRunning = false;
                     System.out.println("Thank you! Goodbye!");
+                    //Felhantering 4:
+                    //Om användaren väljer något annat än 1, 2, eller 3.
+                } else {
+                    System.out.println("Invalid menu option! Please try again!");
                 }
             }
         }

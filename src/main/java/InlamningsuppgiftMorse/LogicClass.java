@@ -3,13 +3,11 @@ package InlamningsuppgiftMorse;
 import java.util.HashMap;
 
 public class LogicClass {
-
     //Både key och value är strängar.
     private HashMap<String, String> morse;
     private HashMap<String, String> text;
 
     String alfabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     //Array innehåller 26 morsekoder.
     String[] morsekod = {
             ".-", "-...", "-.-.", "-..", ".", "..-.",
@@ -32,7 +30,6 @@ public class LogicClass {
             //Fyller en post i varje hashmap för varje bokstav.
             morse.put(letter, morsekod[i]);
             text.put(morsekod[i], letter);
-
         }
     }
 
@@ -46,7 +43,6 @@ public class LogicClass {
         if (text.isEmpty()) {
             return "No input.";
         }
-
         String result = "";
 
         //For loopen går igenom texten ett tecken i taget.
@@ -61,13 +57,12 @@ public class LogicClass {
             //Felhantering 2:
             // Kontrollerar om bokstaven saknas för att get() returnerar null.
             if (morseCode == null) {
-                return "Appapp! Invalid character!";
+                return "Invalid character! Try again!";
             } else {
                 //Lägger till morsekoden i resultatet.
                 result += morseCode + " ";
             }
         }
-
         //Tar bort mellanslaget i slutet.
         return result.trim();
     }
@@ -87,7 +82,7 @@ public class LogicClass {
             //Felhantering 3:
             // Kontrollerar om morsekoden finns i HashMap.
             if (bokstav == null) {
-                return "Appapp! Invalid morse!";
+                return "Invalid morse! Try again!";
             } else {
                 result += bokstav; //+= lägger till något till det som redan finns i variabeln
             }

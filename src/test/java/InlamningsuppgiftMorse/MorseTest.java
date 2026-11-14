@@ -1,4 +1,5 @@
 package InlamningsuppgiftMorse;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,6 +19,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar text till morse.
     @Test
     public void testTextToMorseB() {
@@ -30,6 +32,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar morse till text
     @Test
     public void testMorseToTextB() {
@@ -42,6 +45,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar att programmet kan översätta flera bokstäver
     // och separera morsekoderna med mellanslag.
     @Test
@@ -54,6 +58,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Testar hela alfabetet.
     @Test
     public void testWholeAlphabet() {
@@ -69,6 +74,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar en bokstav mitt i.
     @Test
     public void testMorseToText() {
@@ -81,6 +87,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar hela ord.
     @Test
     public void testMorseToTextWords() {
@@ -93,6 +100,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //kontrollerar omvandlaren fungerar.
     @Test
     public void testToUpperCase() {
@@ -105,6 +113,7 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar om användaren skrivit in ogiltigt texttecken.
     @Test
     public void testInvalidCharacter() {
@@ -114,10 +123,11 @@ public class MorseTest {
         String input = "HEJ!";
         //Act
         String actual = logik.textToMorse(input);
-        String expected ="Appapp! Invalid character!";
+        String expected = "Invalid character! Try again!";
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar ogiltig morsekod:
     @Test
     public void testInvalidMorse() {
@@ -125,12 +135,13 @@ public class MorseTest {
         //Arrange
         LogicClass logik = new LogicClass();
         String input = ".-.-.-";
-        String expected = "Appapp! Invalid morse!";
+        String expected = "Invalid morse! Try again!";
         //Act
         String actual = logik.morseToText(input);
         //Assert
         assertEquals(expected, actual);
     }
+
     //Kontrollerar tom rad.
     @Test
     public void testEmptyInput() {
@@ -144,7 +155,8 @@ public class MorseTest {
         //Assert
         assertEquals(expected, actual);
     }
-        }
+}
+
 
 
 
